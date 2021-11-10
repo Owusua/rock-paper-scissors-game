@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app-container">
+    <Header :scoreNumber="userScoreNumber" />
+    <Rules />
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header";
+import Rules from "./components/Rules";
 
 export default {
-  name: 'App',
+  name: "App",
+  props: {
+    userScoreNumber: Number,
+  },
   components: {
-    HelloWorld
-  }
-}
+    Header,
+    Rules,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,500;0,700;1,100;1,300;1,500;1,600&display=swap");
+@import "./assets/css/app.css";
 </style>

@@ -1,0 +1,375 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+.app-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+/*Header*/
+
+.container-header {
+  border: 3px solid hsl(217, 16%, 45%);
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  height: 100px;
+}
+.cont-img {
+  width: 180px;
+}
+.cont-score {
+  background-color: #fff;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 30px;
+}
+.score-title {
+  color: hsl(229, 64%, 46%);
+  font-size: 20px;
+  font-weight: normal;
+}
+.score-number {
+  color: hsl(229, 25%, 31%);
+  font-size: 55px;
+  font-weight: bold;
+}
+
+/*Header End*/
+
+/*Rules*/
+
+.games-rules {
+  position: absolute;
+  bottom: -160px;
+  right: 90px;
+}
+.rules-button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 7px;
+  padding: 10px 30px;
+  color: #fff;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.rules-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: hsl(229, 25%, 31%);
+  margin-bottom: 50px;
+}
+.rules-header i {
+  font-size: 30px;
+  color: gray;
+  cursor: pointer;
+}
+.rules-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 98;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 25px;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active {
+  transition: transform 0.5s;
+}
+
+/*Rules End*/
+
+.container-game {
+  margin-top: 130px;
+  margin-bottom: 130px;
+  position: relative;
+}
+.game-triangle {
+  position: absolute;
+  transform: translateX(-50%);
+}
+.container-scissors,
+.container-paper,
+.container-rock {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scissors-img,
+.paper-img,
+.rock-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.container-scissors {
+  background: radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  box-shadow: inset 0 -7px 3px hsl(29, 91%, 45%);
+}
+.game-triangle .container-scissors {
+  position: absolute;
+  top: -80px;
+  right: -60px;
+}
+
+.scissors-img {
+  box-shadow: inset 0 6px 3px 0 #b9c2da;
+}
+
+.container-rock {
+  background: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  box-shadow: inset 0 -7px 3px hsl(349, 97%, 37%);
+}
+.game-triangle .container-rock {
+  position: absolute;
+  bottom: -30px;
+  left: 60px;
+}
+.rock-img {
+  box-shadow: inset 0 6px 3px 0 #b9c2da;
+}
+.container-paper {
+  background: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  box-shadow: inset 0 -7px 3px hsl(240, 99%, 60%);
+}
+.game-triangle .container-paper {
+  position: absolute;
+  top: -80px;
+  left: -60px;
+}
+.paper-img {
+  box-shadow: inset 0 6px 3px 0 #b9c2da;
+}
+
+/*Play Page*/
+
+.ripple-win {
+  width: 180px;
+  height: 180px;
+  animation: ripple 1.5s linear infinite;
+  transition: all 0.7s ease;
+  border-radius: 50%;
+}
+
+/* ripple effect */
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 hsl(214, 47%, 50%),
+                0 0 0 40px hsl(214, 47%, 40%),
+                0 0 0 60px hsl(214, 47%, 30%),
+                0 0 0 80px hsl(214, 47%, 20%);
+                
+  }
+  100% {
+    box-shadow: 0 0 0 40px hsl(214, 47%, 50%),
+                0 0 0 60px hsl(214, 47%, 40%),
+                0 0 0 80px hsl(214, 47%, 30%),
+                0 0 0 100px hsl(214, 47%, 20%);
+  }
+}
+
+.play-container {
+  width: 80%;
+  margin-top: 50px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.play-user,
+.play-results,
+.play-house {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  position: relative;
+}
+.play-user h3,
+.play-house h3,
+.play-results h1 {
+  color: #fff;
+  padding-bottom: 50px;
+  letter-spacing: 2px;
+  z-index: 10;
+}
+.play-results h1 {
+  font-size: 50px;
+  padding-bottom: 10px;
+}
+.user-selection {
+  position: relative;
+}
+.play-results {
+  padding-top: 20px;
+}
+.shw-styl {
+  z-index: 10;
+}
+.play-results button {
+  background-color: #fff;
+  padding: 10px 30px;
+  color: red;
+  font-size: 15px;
+  letter-spacing: 2px;
+  border-radius: 7px;
+  border: 1px solid #fff;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+/*Play Page End*/
+
+/*Responsive Design*/
+@media screen and (min-width: 1366px) {
+  .container-scissors,
+  .container-paper,
+  .container-rock {
+    width: 280px;
+    height: 280px;
+  }
+  .scissors-img,
+  .paper-img,
+  .rock-img {
+    width: 220px;
+    height: 220px;
+  }
+  .select-choice {
+    width: 50%;
+  }
+  .cont-triangle {
+    width: 558px;
+  }
+  .game-triangle .container-rock {
+    bottom: -10px;
+    left: 130px;
+  }
+  .container-header {
+    width: 910px;
+    height: 130px;
+    padding: 30px;
+  }
+  .cont-img {
+    width: 220px;
+  }
+  .cont-score {
+    padding: 0px 50px;
+  }
+  .rules-button {
+    padding: 15px 50px;
+    font-size: 22px;
+  }
+  .ripple-win {
+    width: 280px;
+    height: 280px;
+  }
+  .play-results {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .app-container {
+    padding-top: 30px;
+  }
+  .container-header {
+    width: 280px;
+  }
+  .cont-img {
+    width: 140px;
+  }
+  .cont-score {
+    padding: 0px 27px;
+  }
+  .container-scissors,
+  .container-paper,
+  .container-rock {
+    width: 120px;
+    height: 120px;
+  }
+  .scissors-img,
+  .paper-img,
+  .rock-img {
+    width: 90px;
+    height: 90px;
+  }
+  .cont-triangle {
+    width: 215px;
+  }
+  .game-triangle .container-rock {
+    left: 40px;
+  }
+  .games-rules {
+    bottom: -120px;
+    right: 125px;
+  }
+  .ripple-win {
+    width: 100%;
+    height: 100%;
+  }
+  .play-results h1 {
+    font-size: 20px;
+  }
+  .play-user h3, .play-house h3, .play-results h1 {
+    padding-bottom: 20px;
+    font-size: 12px;
+  }
+  .play-results button {
+    padding: 5px 20px;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
